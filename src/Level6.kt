@@ -1,8 +1,18 @@
 fun main(args: Array<String>) {
     //Коллекции для хранения различных данных
-    val sortStringList = args.asList().sorted()
+    val sortStringList : List<String>
+    val argsFromConsole :ArrayList<String> = ArrayList()
     val listStringUnique : MutableList<String> = mutableListOf()
     val intList  = ArrayList<Int>(listStringUnique.size)
+    //Проверка на ввод программных аргументов
+    if (args.isEmpty()) {
+        println("Програмные аргументы отсутствуют, введите их ")
+        val input = readLine()
+        argsFromConsole.addAll(input!!.split(" "))
+        sortStringList = argsFromConsole.sorted()
+        }
+    else sortStringList = args.asList().sorted()
+
     //Заполнение списка уникальных элементов списка
     for (s in sortStringList) {
         if (!listStringUnique.contains(s))
@@ -20,6 +30,7 @@ fun main(args: Array<String>) {
         else count++
     }
     intList.add(count)
+
     //Сортировка полученных данных сначала по количеству повторений определенного элемента, затем по алфавиту
     val intArray : IntArray  = intList.toIntArray()
     val stringArray = listStringUnique.toTypedArray()
@@ -43,3 +54,5 @@ fun main(args: Array<String>) {
     for (i in stringArray.indices)
         println(stringArray[i] + "  " + intArray[i])
 }
+
+

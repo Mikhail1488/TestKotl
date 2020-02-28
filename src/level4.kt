@@ -11,5 +11,4 @@ fun main(args: Array<String>) {
         else count++
     }
     println(sortStringList[(sortStringList.size) - 1] + " " + count)
-
 }
