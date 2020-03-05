@@ -1,14 +1,9 @@
 fun main(args: Array<String>) {
-    val sortStringList = args.asList().sorted()
-    var count = 0
-    var nstr = sortStringList[0]
-    for(i in 0 until (sortStringList.size)){
-        if(sortStringList[i] != nstr){
-            nstr = sortStringList[i]
-            println(sortStringList[i-1] + " " + count)
-            count = 1
-        }
-        else count++
-    }
-    println(sortStringList[(sortStringList.size) - 1] + " " + count)
+    val list = sortedMapOf<String, Int>()
+    for (s in args)
+        if (list.contains(s)) {
+            list[s] = list[s]!! + 1
+        } else list[s] = 1
+
+    list.forEach { println(it.key + " " + it.value) }
 }
